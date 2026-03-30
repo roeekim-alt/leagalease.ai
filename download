@@ -1,0 +1,17 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Backups (don't commit backup files)
+*_BACKUP_*.html
+*_v_WORKING.html
+
+# Env / secrets
+.env
+*.key
