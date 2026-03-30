@@ -1358,12 +1358,80 @@ textarea { resize: vertical; min-height: 50px; line-height: 1.5; }
 .insight-value em { font-style:normal; color:var(--t3,#606078); font-size:10.5px; }
 .intel-count { display:inline-flex; align-items:center; justify-content:center; min-width:14px; height:14px; border-radius:7px; background:rgba(201,154,53,0.20); border:1px solid rgba(201,154,53,0.30); color:var(--au-400,#e5b84a); font-size:8px; font-weight:700; font-family:var(--f-mono,monospace); padding:0 3px; margin-left:3px; vertical-align:middle; }
 
+
+/* ── Voice bar enhancements ── */
+.voice-bar.listening .voice-wave { animation: voiceWave 0.6s ease-in-out infinite alternate; background: #ef4444 !important; }
+.voice-bar.speaking  .voice-wave { animation: voiceWave 0.4s ease-in-out infinite alternate; background: var(--el-400,#22d3d3) !important; }
+.voice-bar.idle      .voice-wave { animation: voiceWave 3s ease-in-out infinite alternate; opacity: 0.3; }
+@keyframes voiceWave {
+  0%   { transform: scaleY(0.3); }
+  100% { transform: scaleY(1.0); }
+}
+.voice-bar.speaking .voice-btn { background: rgba(34,211,211,0.15) !important; border-color: rgba(34,211,211,0.4) !important; }
+.voice-bar.listening .voice-btn { background: rgba(239,68,68,0.15) !important; border-color: rgba(239,68,68,0.4) !important; }
+.voice-wave:nth-child(1) { animation-delay: 0.0s; }
+.voice-wave:nth-child(2) { animation-delay: 0.1s; }
+.voice-wave:nth-child(3) { animation-delay: 0.2s; }
+.voice-wave:nth-child(4) { animation-delay: 0.3s; }
+.voice-wave:nth-child(5) { animation-delay: 0.4s; }
+
 </style>
 </head>
 <body>
 
 <!-- ════ SCREEN: LANDING ════════════════════════════════════════ -->
-<div id="screen-landing" style="display:none"></div>
+<div <div id="screen-landing" style="display:none">
+  <div style="min-height:100vh;background:var(--d0,#05050a);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;font-family:var(--f-ui,system-ui,sans-serif)">
+
+    <!-- Logo -->
+    <div style="margin-bottom:40px;text-align:center">
+      <div style="font-size:48px;margin-bottom:12px">⚖️</div>
+      <div style="font-size:36px;font-weight:800;color:#f1f1f5;letter-spacing:-1px">Legal<span style="color:var(--au-400,#e5b84a)">.Ease</span>.AI</div>
+      <div style="font-size:13px;color:var(--t3,#606078);margin-top:8px;font-family:var(--f-mono,monospace);letter-spacing:2px;text-transform:uppercase">AI-Powered Commercial Agreements</div>
+    </div>
+
+    <!-- Tagline -->
+    <div style="max-width:560px;text-align:center;margin-bottom:48px">
+      <div style="font-size:20px;color:var(--t2,#a0a0b8);line-height:1.6">Generate professional-grade legal agreements in seconds — Founders, M&amp;A, Investment, NDA, Supply &amp; Distribution.</div>
+    </div>
+
+    <!-- Buttons -->
+    <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-bottom:60px">
+      <button onclick="showAuth('signup')" style="padding:14px 36px;border-radius:10px;border:none;background:linear-gradient(135deg,var(--au-600,#a67c28),var(--au-400,#e5b84a));color:#05050a;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;letter-spacing:0.3px">Get Started Free</button>
+      <button onclick="showAuth('signin')" style="padding:14px 36px;border-radius:10px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.05);color:#f1f1f5;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit">Sign In</button>
+    </div>
+
+    <!-- Feature grid -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;max-width:800px;width:100%;margin-bottom:48px">
+      <div style="padding:20px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;text-align:center">
+        <div style="font-size:28px;margin-bottom:8px">📄</div>
+        <div style="font-size:13px;font-weight:700;color:#f1f1f5;margin-bottom:4px">7 Agreement Types</div>
+        <div style="font-size:11px;color:var(--t4,#383850)">Founders · SHA · M&amp;A · Investment · NDA · Supply · Distribution</div>
+      </div>
+      <div style="padding:20px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;text-align:center">
+        <div style="font-size:28px;margin-bottom:8px">🤖</div>
+        <div style="font-size:13px;font-weight:700;color:#f1f1f5;margin-bottom:4px">Frank AI Advisor</div>
+        <div style="font-size:11px;color:var(--t4,#383850)">In-app legal AI powered by Claude Sonnet</div>
+      </div>
+      <div style="padding:20px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;text-align:center">
+        <div style="font-size:28px;margin-bottom:8px">⬇️</div>
+        <div style="font-size:13px;font-weight:700;color:#f1f1f5;margin-bottom:4px">Word &amp; PDF Export</div>
+        <div style="font-size:11px;color:var(--t4,#383850)">Professional layout, cover page, signature blocks</div>
+      </div>
+      <div style="padding:20px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;text-align:center">
+        <div style="font-size:28px;margin-bottom:8px">🔍</div>
+        <div style="font-size:13px;font-weight:700;color:#f1f1f5;margin-bottom:4px">Document Intel</div>
+        <div style="font-size:11px;color:var(--t4,#383850)">Upload contracts for AI analysis &amp; auto-fill</div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div style="font-size:11px;color:var(--t4,#383850);text-align:center;font-family:var(--f-mono,monospace)">
+      Privileged &amp; Confidential · For Discussion Only · Legal.Ease.AI
+    </div>
+
+  </div>
+</div>
 
 <!-- ════ SCREEN: AUTH ════════════════════════════════════════════ -->
 <div id="screen-auth" style="display:none">
@@ -2106,6 +2174,7 @@ textarea { resize: vertical; min-height: 50px; line-height: 1.5; }
     <div class="chat-input-wrap">
       <div class="chat-row">
         <textarea class="chat-input" id="chat-input" placeholder="Ask Frank anything about your agreement…" rows="1" onkeydown="handleKey(event)" oninput="autoResize(this)"></textarea>
+        <button onclick="toggleListening()" id="voice-mic-btn" title="Voice input" style="width:36px;height:36px;border-radius:8px;border:1px solid rgba(255,255,255,0.10);background:rgba(255,255,255,0.04);color:var(--t2,#a0a0b8);cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0" onmouseover="this.style.borderColor='rgba(34,211,211,0.4)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.10)'">🎤</button>
         <button class="chat-send" id="chat-send" onclick="sendChat()">&#10148;</button>
       </div>
       <div class="chat-footer-note">AI responses are for informational purposes only and do not constitute legal advice.</div>
@@ -2266,6 +2335,12 @@ textarea { resize: vertical; min-height: 50px; line-height: 1.5; }
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Legal.Ease.AI — Intelligent Agreement Studio</title><script>
 
+
+
+
+
+
+
 function buildNdaDraft(d) {
   var isMutual = d.mutual;
   var discloser = d.discloser || '[Disclosing Party]';
@@ -2365,10 +2440,16 @@ function saveKey(k) {
 }
 function hasKey() { return !!(LEX_KEY && LEX_KEY.length > 20); }
 function updateKeyStatus() {
-  var el = document.getElementById('key-status');
+  // Try both possible IDs
+  var el = document.getElementById('key-status') || document.getElementById('lex-key-status');
   if (!el) return;
-  el.textContent = hasKey() ? '✓ API Key set' : 'No API Key';
-  el.style.color = hasKey() ? 'var(--el-400,#22d3d3)' : 'var(--t4,#383850)';
+  if (hasKey()) {
+    el.innerHTML = '<div class="ai-dot2" style="background:#22d3d3"></div>AI Counsel Active';
+    el.style.color = '#22d3d3';
+  } else {
+    el.innerHTML = '<div class="ai-dot2" style="background:#666"></div>No API Key';
+    el.style.color = '#666';
+  }
 }
 function showKeyModal() {
   var key = prompt('Enter your Anthropic API Key to activate Frank AI:\n(Get one free at console.anthropic.com)');
@@ -2846,6 +2927,10 @@ function doSendChat(text) {
     chatBusy=false;
     var msgs=document.getElementById('chat-msgs');
     if(msgs) msgs.scrollTop=msgs.scrollHeight;
+    // Speak the reply if not muted
+    if (!voiceMuted) {
+      try { frankSpeak(reply); } catch(e) {}
+    }
   }).catch(function(err){
     if(typing&&typing.querySelector){var b=typing.querySelector('.msg-bubble');if(b)b.innerHTML='Connection error: '+err.message;}
     chatBusy=false;
@@ -3042,35 +3127,178 @@ function aiSuggestRedlines() {
 var VOICE_CHARS = { frank: { name:'Frank', persona_en:'You are Frank, a senior M&A lawyer AI.' } };
 function loadVoiceKeys() {}
 function setVoiceState(state) {
-  var bar = document.querySelector('.voice-bar');
+  var bar    = document.getElementById('voice-bar');
+  var btn    = document.getElementById('voice-btn');
+  var waves  = document.getElementById('voice-waves');
+  var status = document.getElementById('voice-status');
   if (!bar) return;
-  bar.className = 'voice-bar'+(state==='listening'?' listening':state==='speaking'?' speaking':'');
-  var status = document.querySelector('.voice-status');
-  if (status) status.textContent = state==='listening'?'Listening…':state==='speaking'?'Speaking…':'Click mic to speak';
+  // Remove all state classes
+  bar.classList.remove('listening', 'speaking', 'idle');
+  if (state === 'listening') {
+    bar.classList.add('listening');
+    if (btn)    btn.textContent = '🔴';
+    if (status) status.textContent = 'Listening…';
+    if (waves)  waves.style.opacity = '1';
+  } else if (state === 'speaking') {
+    bar.classList.add('speaking');
+    if (btn)    btn.textContent = '🔊';
+    if (status) status.textContent = 'Speaking…';
+    if (waves)  waves.style.opacity = '1';
+  } else {
+    bar.classList.add('idle');
+    if (btn)    btn.textContent = '🎤';
+    if (status) status.textContent = 'Click mic to speak';
+    if (waves)  waves.style.opacity = '0.3';
+  }
 }
 function frankSpeak(text) {
-  if (!window.speechSynthesis || !text) return;
+  if (!window.speechSynthesis) return;
+  if (voiceMuted) return;
+  if (!text) return;
+
+  // Strip HTML tags and decode entities
+  var clean = text
+    .replace(/<[^>]*>/g, ' ')
+    .replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&nbsp;/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  if (!clean || clean.length < 2) return;
+
+  // Cancel any ongoing speech
   window.speechSynthesis.cancel();
-  setVoiceState('speaking');
-  var utt = new SpeechSynthesisUtterance(text);
-  utt.rate=0.95; utt.pitch=1; utt.volume=1;
-  utt.onend = function(){ setVoiceState('idle'); };
-  window.speechSynthesis.speak(utt);
+
+  // Character voice profiles
+  var profiles = {
+    frank:  { rate: 0.90, pitch: 0.88, volume: 1.0, lang: 'en-US', preferName: ['Google US English', 'Alex', 'Daniel', 'en-US'] },
+    maya:   { rate: 0.88, pitch: 1.10, volume: 1.0, lang: 'he-IL', preferName: ['he-IL', 'Hebrew', 'he'] },
+    alex:   { rate: 1.05, pitch: 1.00, volume: 1.0, lang: 'en-US', preferName: ['Google US English', 'en-US', 'Alex'] },
+    rachel: { rate: 0.87, pitch: 1.18, volume: 1.0, lang: 'en-GB', preferName: ['Google UK English Female', 'en-GB', 'Kate'] },
+    dan:    { rate: 0.88, pitch: 0.80, volume: 1.0, lang: 'he-IL', preferName: ['he-IL', 'Hebrew', 'he'] }
+  };
+  var profile = profiles[currentVoiceChar] || profiles.frank;
+
+  // Smart chunking: split long text into sentences for more natural delivery
+  // (browser TTS often cuts off after ~200 chars)
+  var MAX_CHUNK = 180;
+  var sentences = clean.match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [clean];
+  var chunks = [];
+  var current = '';
+  sentences.forEach(function(s) {
+    s = s.trim();
+    if (!s) return;
+    if ((current + ' ' + s).length > MAX_CHUNK && current) {
+      chunks.push(current.trim());
+      current = s;
+    } else {
+      current = current ? current + ' ' + s : s;
+    }
+  });
+  if (current.trim()) chunks.push(current.trim());
+  if (!chunks.length) chunks = [clean];
+
+  // Get best matching voice
+  function getBestVoice(profile) {
+    var voices = window.speechSynthesis.getVoices();
+    if (!voices || !voices.length) return null;
+    // Try preferred names first
+    for (var pi = 0; pi < profile.preferName.length; pi++) {
+      var pref = profile.preferName[pi].toLowerCase();
+      for (var vi = 0; vi < voices.length; vi++) {
+        var v = voices[vi];
+        if (v.name.toLowerCase().indexOf(pref) >= 0 || v.lang.toLowerCase().indexOf(pref) >= 0) {
+          return v;
+        }
+      }
+    }
+    // Fallback: match by lang prefix
+    var langPrefix = profile.lang.split('-')[0];
+    return voices.find(function(v){ return v.lang.startsWith(langPrefix); }) || voices[0];
+  }
+
+  // Play chunks in sequence
+  var chunkIndex = 0;
+  function playNext() {
+    if (chunkIndex >= chunks.length) {
+      setVoiceState('idle');
+      return;
+    }
+    var utt = new SpeechSynthesisUtterance(chunks[chunkIndex]);
+    utt.rate   = profile.rate;
+    utt.pitch  = profile.pitch;
+    utt.volume = profile.volume;
+
+    var voice = getBestVoice(profile);
+    if (voice) utt.voice = voice;
+    else utt.lang = profile.lang;
+
+    utt.onend = function() {
+      chunkIndex++;
+      // Small pause between chunks for natural rhythm
+      setTimeout(playNext, 80);
+    };
+    utt.onerror = function(e) {
+      // Skip chunk on error, keep going
+      chunkIndex++;
+      setTimeout(playNext, 80);
+    };
+    setVoiceState('speaking');
+    window.speechSynthesis.speak(utt);
+
+    // Chromium bug: TTS sometimes freezes — watchdog
+    setTimeout(function() {
+      if (window.speechSynthesis.speaking && !window.speechSynthesis.paused) return;
+      if (chunkIndex < chunks.length) {
+        chunkIndex++;
+        playNext();
+      }
+    }, 8000);
+  }
+
+  // Voices may not be loaded yet on first call
+  var voices = window.speechSynthesis.getVoices();
+  if (!voices || voices.length === 0) {
+    window.speechSynthesis.onvoiceschanged = function() {
+      window.speechSynthesis.onvoiceschanged = null;
+      playNext();
+    };
+  } else {
+    playNext();
+  }
 }
 function startListening() {
   var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-  if (!SR) { setX('Speech not supported'); return; }
+  if (!SR) {
+    setX('Speech recognition not supported in this browser');
+    setTimeout(function(){ setX(''); }, 2500);
+    return;
+  }
+  // Stop any current speech before listening
+  if (window.speechSynthesis) window.speechSynthesis.cancel();
   setVoiceState('listening');
   var rec = new SR();
-  rec.lang='en-US'; rec.interimResults=false;
-  rec.onresult = function(e){
-    var text = e.results[0][0].transcript;
+  // Language based on current character
+  var profiles = { frank:'en-US', maya:'he-IL', alex:'en-US', rachel:'en-GB', dan:'he-IL' };
+  rec.lang = profiles[currentVoiceChar] || 'en-US';
+  rec.interimResults = false;
+  rec.maxAlternatives = 1;
+  rec.onresult = function(e) {
+    var transcript = e.results[0][0].transcript;
     setVoiceState('idle');
-    doSendChat(text);
+    if (transcript && transcript.trim()) {
+      doSendChat(transcript.trim());
+    }
   };
-  rec.onerror = function(){ setVoiceState('idle'); };
-  rec.onend   = function(){ setVoiceState('idle'); };
-  rec.start();
+  rec.onerror = function(e) {
+    setVoiceState('idle');
+    if (e.error !== 'no-speech') {
+      setX('Mic error: ' + e.error);
+      setTimeout(function(){ setX(''); }, 2000);
+    }
+  };
+  rec.onend = function() {
+    setVoiceState('idle');
+  };
+  try { rec.start(); } catch(e) { setVoiceState('idle'); }
 }
 function stopListening() { setVoiceState('idle'); }
 function toggleListening() {
@@ -5251,6 +5479,78 @@ function crc32(data) {
 function u16(n) { return [n & 0xFF, (n >> 8) & 0xFF]; }
 
 function u32(n) { return [n & 0xFF, (n>>8)&0xFF, (n>>16)&0xFF, (n>>24)&0xFF]; }
+
+
+// ── Voice Character System ────────────────────────────────────────
+var currentVoiceChar = 'frank';
+var voiceMuted = false;
+var VOICE_CHARS_MAP = {
+  frank:  { name:'Frank',  lang:'en', pitch:0.9,  rate:0.92, label:'⚖ Frank'  },
+  maya:   { name:'Maya',   lang:'he', pitch:1.1,  rate:0.95, label:'🌿 Maya'   },
+  alex:   { name:'Alex',   lang:'en', pitch:1.0,  rate:1.05, label:'🗽 Alex'   },
+  rachel: { name:'Rachel', lang:'en', pitch:1.15, rate:0.90, label:'💼 Rachel' },
+  dan:    { name:'Dan',    lang:'he', pitch:0.85, rate:0.95, label:'⚡ Dan'    }
+};
+
+function setVoiceChar(charKey, btn) {
+  currentVoiceChar = charKey;
+  // Update UI
+  document.querySelectorAll('.char-chip').forEach(function(b){ b.classList.remove('on'); });
+  if (btn) btn.classList.add('on');
+  // Update language buttons
+  var char = VOICE_CHARS_MAP[charKey] || VOICE_CHARS_MAP.frank;
+  var isHe = char.lang === 'he';
+  var langEn = document.getElementById('lang-en');
+  var langHe = document.getElementById('lang-he');
+  // Just visual feedback - don't force switch
+  setX('Voice: ' + char.name + ' selected');
+  setTimeout(function(){ setX(''); }, 1200);
+}
+
+function toggleVoice() {
+  var bar = document.querySelector('.voice-bar');
+  var btn = document.getElementById('voice-btn');
+  if (!bar) return;
+  if (bar.classList.contains('listening')) {
+    stopListening();
+  } else {
+    startListening();
+  }
+}
+
+function toggleVoiceMode() {
+  voiceMuted = !voiceMuted;
+  var btn = document.getElementById('voice-mute-btn');
+  if (btn) btn.textContent = voiceMuted ? '🔇' : '🔊';
+  if (voiceMuted && window.speechSynthesis) window.speechSynthesis.cancel();
+  setX(voiceMuted ? 'Voice muted' : 'Voice active');
+  setTimeout(function(){ setX(''); }, 1000);
+}
+
+function showVoiceKeyModal() {
+  alert('Voice AI Settings\n\nCurrently using browser speech synthesis.\nElevenLabs / Deepgram integration coming soon.');
+}
+
+function sendQuick(text) {
+  var sug = document.getElementById('sug-btns');
+  if (sug) sug.style.display = 'none';
+  doSendChat(text);
+}
+
+function setLang(lang, btn) {
+  document.querySelectorAll('.lang-btn').forEach(function(b){ b.classList.remove('on'); });
+  if (btn) btn.classList.add('on');
+}
+
+function openEsign() {
+  alert('E-signature integration coming soon!\nFor now, export as Word/PDF and use DocuSign, HelloSign, or PandaDoc.');
+}
+
+function showPage(page) {
+  if (page === 'landing') showLanding();
+}
+
+
 
 </script>
 </body>
